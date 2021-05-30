@@ -8,8 +8,11 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@splidejs/splide": "^2.4.21",
+    "@splidejs/vue-splide": "^0.3.5",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
+    "vue-loading-overlay": "^4.0.2",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
   },
@@ -42,7 +45,16 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {"import/extensions": ["error", "ignorePackages", { "vue": "never", "js": "never" }]}
+    "rules": {
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "vue": "never",
+          "js": "never"
+        }
+      ]
+    }
   },
   "browserslist": [
     "> 1%",

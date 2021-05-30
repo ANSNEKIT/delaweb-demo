@@ -1,24 +1,39 @@
 <template>
   <the-navbar>
     <li class="navbar-item">
-      <a href="#">Войти</a>
+      <a href="#" @click="popupOpen">Войти</a>
     </li>
   </the-navbar>
 
-  <div class="container with-nav card">
-    <p class="">Войдите чтобы получить доступ к расширенному функционалу</p>
-  </div>
+  <Home />
+
+  <popup-login
+    :isOpen="isPopupOpen"
+    @login="fetchLogin"
+    @close="isPopupOpen = false"
+  ></popup-login>
 </template>
 
 <script>
-import TheNavbar from '../components/TheNavbar.vue';
+import TheNavbar from '../components/TheNavbar';
+import PopupLogin from '../components/PopupLogin';
+import Home from '../views/Home';
 
 export default {
-  components: { TheNavbar },
+  components: { TheNavbar, PopupLogin, Home },
+  data() {
+    return { isPopupOpen: false };
+  },
+  methods: {
+    popupOpen() {
+      this.isPopupOpen = true;
+    },
+
+    fetchLogin() {
+      console.log('Успешно вошли');
+      this.isPopupOpen = false;
+    },
+  },
 };
 
 </script>
-
-<style>
-
-</style>
