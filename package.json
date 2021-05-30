@@ -42,7 +42,7 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {"import/extensions": ["error", "ignorePackages", { "vue": "never", "js": "never" }]}
   },
   "browserslist": [
     "> 1%",
