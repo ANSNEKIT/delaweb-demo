@@ -2,7 +2,11 @@
   <div class="container with-nav card">
     <h1 class="text-center">Добро пожаловать в демо личный кабинет <br>
     <span>{{ APP_NAME }}!</span></h1>
-    <p class="text-center main-text">Войдите чтобы получить доступ к расширенному функционалу</p>
+    <slot>
+      <p class="text-center main-text">
+        Вы успешно авторизовались! Вам доступен просмотр и редактирование профиля.
+      </p>
+    </slot>
     <Slider />
   </div>
 </template>

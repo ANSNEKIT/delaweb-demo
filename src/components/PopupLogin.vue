@@ -65,6 +65,7 @@
 <script>
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
+import { useStore } from 'vuex';
 
 export default {
   components: { Loading },
@@ -85,6 +86,7 @@ export default {
         password: null,
       },
       isLoading: false,
+      store: useStore(),
     };
   },
 
@@ -131,7 +133,8 @@ export default {
         setTimeout(() => {
           this.$emit('login');
           this.isLoading = false;
-        }, 3000);
+          this.store.dispatch('auth/login');
+        }, 2000);
 
         this.email = '';
         this.password = '';

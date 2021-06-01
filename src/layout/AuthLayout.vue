@@ -5,11 +5,13 @@
     </li>
   </the-navbar>
 
-  <Home />
+  <Home>
+    <p class="text-center main-text">Войдите чтобы получить доступ к расширенному функционалу</p>
+  </Home>
 
   <popup-login
     :isOpen="isPopupOpen"
-    @login="fetchLogin"
+    @login="popupClose"
     @close="isPopupOpen = false"
   ></popup-login>
 </template>
@@ -29,8 +31,7 @@ export default {
       this.isPopupOpen = true;
     },
 
-    fetchLogin() {
-      console.log('Успешно вошли');
+    popupClose() {
       this.isPopupOpen = false;
     },
   },

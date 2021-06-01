@@ -3,7 +3,8 @@
 </template>
 
 <script>
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 // import { useRoute } from 'vue-router';
 
 import AuthLayout from './layout/AuthLayout';
@@ -13,11 +14,11 @@ export default {
   components: { AuthLayout, MainLayout },
   setup() {
     // const route = useRoute();
-    const isAuth = ref(false);
+    const state = useStore();
     // console.log(route);
 
     return {
-      layout: computed(() => (isAuth.value ? 'main-layout' : 'auth-layout')),
+      layout: computed(() => (state.getters['auth/isAuthenticated'] ? 'main-layout' : 'auth-layout')),
     };
   },
 };

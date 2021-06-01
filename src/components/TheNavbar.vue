@@ -10,7 +10,7 @@
           <router-link to="/profile">Профиль</router-link>
         </li>
         <li class="navbar-item">
-          <a href="#">Выйти</a>
+          <a href="#" @click.prevent="logout">Выйти</a>
         </li>
       </slot>
     </ul>
@@ -18,8 +18,21 @@
 </template>
 
 <script>
-export default {
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 
+export default {
+  setup() {
+    const router = useRouter();
+    const store = useStore();
+
+    return {
+      logout: () => {
+        store.commit('auth/logout');
+        router.push('/');
+      },
+    };
+  },
 };
 </script>
 

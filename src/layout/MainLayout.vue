@@ -1,8 +1,7 @@
 <template>
   <the-navbar></the-navbar>
-  <div class="container with-nav">
-    <p>sadfsadf</p>
-  </div>
+
+  <router-view></router-view>
 </template>
 
 <script>
@@ -13,7 +12,3 @@ export default {
 };
 
 </script>
-
-<style>
-
-</style>
